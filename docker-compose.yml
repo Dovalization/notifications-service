@@ -1,0 +1,18 @@
+# docker compose file for nestjs application including sqlite database
+
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+    container_name: notifications-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_USER: docker
+      POSTGRES_DB: notifications-db
+    volumes:
+      -pgdata:/
+    
